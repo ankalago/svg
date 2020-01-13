@@ -5,7 +5,8 @@ import Snap from "snapsvg";
 export default function Svg() {
   const parsePosition = (centerX, centerY, position) => {
     const [posX, posY] = position.replace("t", "").split(",");
-    console.log(parseInt(posX, 10) + centerX, parseInt(posY, 10) + centerY);
+    const [x, y] = [parseInt(posX, 10) + centerX, parseInt(posY, 10) + centerY];
+    console.log(x, y);
   };
 
   useEffect(() => {
