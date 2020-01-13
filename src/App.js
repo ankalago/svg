@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 //import Svg from "./Svg";
 import ImageCarReport from "./ImageCarReport";
 import ImageReport from "./ImageReport";
 
 export default function App() {
+  const [marker, setMarker] = useState({ x: 15, y: 15 });
   return (
     <div className="App">
       {/*<Svg />*/}
@@ -23,8 +24,9 @@ export default function App() {
           withBorder
           perspective="FRONT"
           id="report-img"
-          markerX={230}
-          markerY={62}
+          markerX={marker.x}
+          markerY={marker.y}
+          onChange={() => setMarker()}
         />
       </div>
     </div>
