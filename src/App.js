@@ -23,8 +23,8 @@ export default function App() {
           withBorder
           perspective="FRONT"
           id="report-img"
-          markerX={116}
-          markerY={96}
+          markerX={230}
+          markerY={62}
         />
       </div>
     </div>
