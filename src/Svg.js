@@ -10,16 +10,16 @@ export default function Svg() {
   };
 
   useEffect(() => {
-    const s = Snap(300, 212);
+    const s = Snap(300, 190);
     Snap.load("car-front.svg", f => {
       const path = f.select("path").transform("t61, 20");
       s.prepend(path);
     });
-    var circle1 = s.circle(150, 180, 15);
+    var circle1 = s.circle(150, 170, 15);
     circle1.attr({
       fill: "#D9D2E8"
     });
-    var circle2 = s.circle(150, 180, 12);
+    var circle2 = s.circle(150, 170, 12);
     circle2.attr({
       fill: "#7859AB"
     });
