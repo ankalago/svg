@@ -32,11 +32,11 @@ export default function ImageReport({
     });
     var circle1 = s.circle(markerX, markerY, 15);
     circle1.attr({
-      fill: "#D9DFFF"
+      fill: "#D9D2E8"
     });
     var circle2 = s.circle(markerX, markerY, 12);
     circle2.attr({
-      fill: "#785BBB"
+      fill: "#7859AB"
     });
   }, []);
 
