@@ -3,6 +3,11 @@ import "./styles.css";
 import Snap from "snapsvg";
 
 export default function Svg() {
+  const parsePosition = (centerX, centerY, position) => {
+    const [posX, posY] = position.replace("t", "").split(",");
+    console.log(parseInt(posX, 10) + centerX, parseInt(posY, 10) + centerY);
+  };
+
   useEffect(() => {
     const s = Snap(300, 212);
     Snap.load("car-front.svg", f => {
@@ -26,13 +31,14 @@ export default function Svg() {
             (this.data("origTransform") ? "T" : "t") +
             [dx, dy]
         });
-        //console.log(posx + 24, posy + 24);
       },
       function() {
         this.data("origTransform", this.transform().local);
       },
       function() {
         console.log("finished dragging");
+        const position = this.transform().global;
+        parsePosition(150, 180, position);
       }
     );
   }, []);
