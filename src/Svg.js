@@ -8,11 +8,11 @@ export default function Svg() {
     Snap.load("car-front.svg", f => {
       s.prepend(f.select("path"));
     });
-    var circle1 = s.circle(15, 15, 15);
+    var circle1 = s.circle(126, 156, 15);
     circle1.attr({
       fill: "#D9D2E8"
     });
-    var circle2 = s.circle(15, 15, 12);
+    var circle2 = s.circle(126, 156, 12);
     circle2.attr({
       fill: "#7859AB"
     });
