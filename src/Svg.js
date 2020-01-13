@@ -6,13 +6,14 @@ export default function Svg() {
   useEffect(() => {
     const s = Snap(300, 212);
     Snap.load("car-front.svg", f => {
-      s.prepend(f.select("path"));
+      const path = f.select("path").transform("t61, 20");
+      s.prepend(path);
     });
-    var circle1 = s.circle(126, 156, 15);
+    var circle1 = s.circle(150, 180, 15);
     circle1.attr({
       fill: "#D9D2E8"
     });
-    var circle2 = s.circle(126, 156, 12);
+    var circle2 = s.circle(150, 180, 12);
     circle2.attr({
       fill: "#7859AB"
     });
@@ -25,12 +26,12 @@ export default function Svg() {
             (this.data("origTransform") ? "T" : "t") +
             [dx, dy]
         });
-        console.log(posx + 24, posy + 24);
+        //console.log(posx + 24, posy + 24);
       },
       function() {
         this.data("origTransform", this.transform().local);
       },
-      function(e) {
+      function() {
         console.log("finished dragging");
       }
     );
