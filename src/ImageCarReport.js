@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Snap from "snapsvg";
 
 export default function ImageCarReport({
+  id,
   width,
   height,
   withBorder,
@@ -27,7 +28,7 @@ export default function ImageCarReport({
   };
 
   useEffect(() => {
-    const s = Snap("#svg");
+    const s = Snap(`#report-img-${id}`);
     const { image, posx, posy } = positionCarPerspective[perspective];
     Snap.load(image, f => {
       const path = f.select("path").transform(`t${posx}, ${posy}`);
@@ -57,14 +58,15 @@ export default function ImageCarReport({
       function() {
         console.log("finished dragging");
         const position = this.transform().global;
-        parsePosition(width, height, position);
+        console.log(position);
+        parsePosition(150, 180, position);
       }
     );
   }, []);
 
   return (
     <svg
-      id="svg"
+      id={`report-img-${id}`}
       width={width}
       height={height}
       style={withBorder ? border : {}}
