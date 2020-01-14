@@ -38,7 +38,8 @@ export default function ImageReport({
     });
     var circle1 = s.circle(markerX * scale, markerY * scale, markerRadio);
     circle1.attr({
-      fill: "#D9D2E8"
+      fill: "#D9D2E8",
+      "fill-opacity": 0.5
     });
     var circle2 = s.circle(markerX * scale, markerY * scale, markerRadio - 4);
     circle2.attr({

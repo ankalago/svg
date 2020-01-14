@@ -52,6 +52,21 @@ export default function App() {
           posY={-50}
         />
       </div>
+      <div>
+        <ImageReport
+          id="report-img-3"
+          width={300}
+          height={180}
+          withBorder
+          perspective="FRONT"
+          markerX={marker.x}
+          markerY={marker.y}
+          markerRadio={13}
+          scale={0.5}
+          posX={-30}
+          posY={-50}
+        />
+      </div>
     </div>
   );
 }
