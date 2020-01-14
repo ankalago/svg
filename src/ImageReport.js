@@ -25,6 +25,7 @@ export default function ImageReport({
 
   useEffect(() => {
     const s = Snap(`#car-report-img-${id}`);
+    s.clear();
     const { image, posx, posy } = positionCarPerspective[perspective];
     Snap.load(image, f => {
       const path = f.select("path").transform(`t${posx}, ${posy}`);
