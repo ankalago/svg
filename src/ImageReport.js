@@ -12,11 +12,12 @@ export default function ImageReport({
   markerRadio,
   posX,
   posY,
-  scale = 1
+  scale = 1,
+  styles = {}
 }) {
   const [border, setBorder] = useState({
-    border: "1px solid #c8c8c8",
-    borderRadius: "5px"
+    border: withBorder ? "1px solid #c8c8c8" : "none",
+    borderRadius: withBorder ? "5px" : 0
   });
 
   const positionCarPerspective = {
@@ -52,7 +53,7 @@ export default function ImageReport({
       id={`car-report-img-${id}`}
       width={width * scale}
       height={height * scale}
-      style={withBorder ? border : {}}
+      style={{ ...styles, ...border }}
     />
   );
 }

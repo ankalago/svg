@@ -52,12 +52,23 @@ export default function App() {
           posY={-50}
         />
       </div>
-      <div>
+      <div
+        style={{
+          width: 111,
+          height: 111,
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          border: "1px solid #c8c8c8",
+          borderRadius: "5px",
+          margin: "auto"
+        }}
+      >
         <ImageReport
           id="report-img-3"
           width={300}
           height={180}
-          withBorder
           perspective="FRONT"
           markerX={marker.x}
           markerY={marker.y}
@@ -65,6 +76,11 @@ export default function App() {
           scale={0.5}
           posX={-30}
           posY={-50}
+          styles={{
+            display: "flex",
+            alignItems: "center",
+            marginLeft: "-19px"
+          }}
         />
       </div>
     </div>
