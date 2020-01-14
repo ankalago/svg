@@ -18,7 +18,6 @@ export default function App() {
           onChange={e => setMarker(e)}
         />
       </div>
-      {console.log("render: ", marker)}
       <div>
         <ImageReport
           id="report-img"
