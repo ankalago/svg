@@ -8,7 +8,11 @@ export default function ImageReport({
   withBorder,
   perspective = "FRONT",
   markerX,
-  markerY
+  markerY,
+  markerRadio,
+  posX,
+  posY,
+  scale = 1
 }) {
   const [border, setBorder] = useState({
     border: "1px solid #c8c8c8",
@@ -18,8 +22,9 @@ export default function ImageReport({
   const positionCarPerspective = {
     FRONT: {
       image: "car-front.svg",
-      posx: 61,
-      posy: 20
+      posx: posX * scale,
+      posy: posY * scale,
+      scale: scale
     }
   };
 
@@ -28,14 +33,14 @@ export default function ImageReport({
     s.clear();
     const { image, posx, posy } = positionCarPerspective[perspective];
     Snap.load(image, f => {
-      const path = f.select("path").transform(`t${posx}, ${posy}`);
+      const path = f.select("path").transform(`T${posx}, ${posy} s${scale}`);
       s.prepend(path);
     });
-    var circle1 = s.circle(markerX, markerY, 15);
+    var circle1 = s.circle(markerX * scale, markerY * scale, markerRadio);
     circle1.attr({
       fill: "#D9D2E8"
     });
-    var circle2 = s.circle(markerX, markerY, 12);
+    var circle2 = s.circle(markerX * scale, markerY * scale, markerRadio - 4);
     circle2.attr({
       fill: "#7859AB"
     });
@@ -44,8 +49,8 @@ export default function ImageReport({
   return (
     <svg
       id={`car-report-img-${id}`}
-      width={width}
-      height={height}
+      width={width * scale}
+      height={height * scale}
       style={withBorder ? border : {}}
     />
   );

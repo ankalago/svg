@@ -20,13 +20,31 @@ export default function App() {
       </div>
       <div>
         <ImageReport
-          id="report-img"
+          id="report-img-1"
           width={300}
           height={180}
           withBorder
           perspective="FRONT"
           markerX={marker.x}
           markerY={marker.y}
+          markerRadio={15}
+          posX={61}
+          posY={20}
+        />
+      </div>
+      <div>
+        <ImageReport
+          id="report-img-2"
+          width={300}
+          height={180}
+          withBorder
+          perspective="FRONT"
+          markerX={marker.x}
+          markerY={marker.y}
+          markerRadio={13}
+          scale={0.5}
+          posX={-30}
+          posY={-50}
         />
       </div>
     </div>

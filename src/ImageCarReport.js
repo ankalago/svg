@@ -40,7 +40,7 @@ export default function ImageCarReport({
     circle1.attr({
       fill: "#D9D2E8"
     });
-    var circle2 = s.circle(150, 180, 12);
+    var circle2 = s.circle(150, 180, 11);
     circle2.attr({
       fill: "#7859AB"
     });
