@@ -15,18 +15,19 @@ export default function App() {
           height={210}
           perspective="FRONT"
           id="img-front"
+          onChange={e => setMarker(e)}
         />
       </div>
+      {console.log("render: ", marker)}
       <div>
         <ImageReport
+          id="report-img"
           width={300}
           height={180}
           withBorder
           perspective="FRONT"
-          id="report-img"
           markerX={marker.x}
           markerY={marker.y}
-          onChange={() => setMarker()}
         />
       </div>
     </div>

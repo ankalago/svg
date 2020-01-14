@@ -38,7 +38,7 @@ export default function ImageReport({
     circle2.attr({
       fill: "#7859AB"
     });
-  }, []);
+  });
 
   return (
     <svg

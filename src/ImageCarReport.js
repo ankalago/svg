@@ -6,7 +6,8 @@ export default function ImageCarReport({
   width,
   height,
   withBorder,
-  perspective = "FRONT"
+  perspective = "FRONT",
+  onChange
 }) {
   const [border, setBorder] = useState({
     border: "1px solid #c8c8c8",
@@ -24,7 +25,8 @@ export default function ImageCarReport({
   const parsePosition = (centerX, centerY, position) => {
     const [posX, posY] = position.replace("t", "").split(",");
     const [x, y] = [parseInt(posX, 10) + centerX, parseInt(posY, 10) + centerY];
-    console.log(x, y);
+    //console.log(x, y, width, height);
+    onChange({ x, y });
   };
 
   useEffect(() => {
@@ -56,9 +58,9 @@ export default function ImageCarReport({
         this.data("origTransform", this.transform().local);
       },
       function() {
-        console.log("finished dragging");
+        //console.log("finished dragging");
         const position = this.transform().global;
-        console.log(position);
+        //console.log(position);
         parsePosition(150, 180, position);
       }
     );
