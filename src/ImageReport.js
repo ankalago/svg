@@ -22,8 +22,8 @@ export default function ImageReport({
   const positionCarPerspective = {
     FRONT: {
       image: "car-front.svg",
-      posx: posX * scale,
-      posy: posY * scale,
+      posX: posX * scale,
+      posY: posY * scale,
       scale: scale
     }
   };
@@ -31,9 +31,9 @@ export default function ImageReport({
   useEffect(() => {
     const s = Snap(`#car-report-img-${id}`);
     s.clear();
-    const { image, posx, posy } = positionCarPerspective[perspective];
+    const { image, posX, posY } = positionCarPerspective[perspective];
     Snap.load(image, f => {
-      const path = f.select("path").transform(`T${posx}, ${posy} s${scale}`);
+      const path = f.select("path").transform(`T${posX}, ${posY} s${scale}`);
       s.prepend(path);
     });
     var circle1 = s.circle(markerX * scale, markerY * scale, markerRadio);

@@ -7,7 +7,12 @@ export default function ImageCarReport({
   height,
   withBorder,
   perspective = "FRONT",
-  onChange
+  onChange,
+  markerX,
+  markerY,
+  markerRadio,
+  posX,
+  posY
 }) {
   const [border, setBorder] = useState({
     border: "1px solid #c8c8c8",
@@ -17,8 +22,8 @@ export default function ImageCarReport({
   const positionCarPerspective = {
     FRONT: {
       image: "car-front.svg",
-      posx: 61,
-      posy: 20
+      posX: posX,
+      posY: posY
     }
   };
 
@@ -31,16 +36,16 @@ export default function ImageCarReport({
 
   useEffect(() => {
     const s = Snap(`#report-img-${id}`);
-    const { image, posx, posy } = positionCarPerspective[perspective];
+    const { image, posX, posY } = positionCarPerspective[perspective];
     Snap.load(image, f => {
-      const path = f.select("path").transform(`t${posx}, ${posy}`);
+      const path = f.select("path").transform(`t${posX}, ${posY}`);
       s.prepend(path);
     });
-    var circle1 = s.circle(150, 180, 15);
+    var circle1 = s.circle(markerX, markerY, markerRadio);
     circle1.attr({
       fill: "#D9D2E8"
     });
-    var circle2 = s.circle(150, 180, 11);
+    var circle2 = s.circle(markerX, markerY, markerRadio - 4);
     circle2.attr({
       fill: "#7859AB"
     });
@@ -61,7 +66,7 @@ export default function ImageCarReport({
         //console.log("finished dragging");
         const position = this.transform().global;
         //console.log(position);
-        parsePosition(150, 180, position);
+        parsePosition(markerX, markerY, position);
       }
     );
   }, []);

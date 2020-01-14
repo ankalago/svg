@@ -16,6 +16,11 @@ export default function App() {
           perspective="FRONT"
           id="img-front"
           onChange={e => setMarker(e)}
+          markerX={150}
+          markerY={180}
+          markerRadio={15}
+          posX={61}
+          posY={20}
         />
       </div>
       <div>
